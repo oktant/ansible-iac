@@ -1,0 +1,30 @@
+- name: Pull the Docker image with the name '{{ kafka_docker_image }}'
+  docker_image:
+    name: "{{ kafka_docker_image }}"
+
+- name: Run the Docker image with the name '{{ kafka_docker_image }}'
+  docker_container:
+    name: "{{ kafka_docker_container_name }}"
+    image: "{{ kafka_docker_image }}"
+
+
+- name: get container status
+  shell: docker inspect "{{ kafka_docker_container_name }}"
+  register: status
+
+- name: Set container status as json from message output
+  set_fact:
+    statusJson: "{{ status.stdout | from_json }}"
+
+- name: Set container state variable
+  set_fact:
+    containerState: "{{ statusJson[0] }}"
+
+- name: Assert that "{{ kafka_docker_container_name }}" is running
+  assert:
+    that:
+      - "{{ containerState.State.Running}} == true"
+- name: Assert that "{{ kafka_docker_container_name }}" did not restart
+  assert:
+    that:
+      - "{{ containerState.State.Restarting}} == false"

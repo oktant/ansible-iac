@@ -1,0 +1,9 @@
+---
+
+- hosts: target-server
+  roles:
+    - docker
+    - keycloak
+    - kafka
+
+

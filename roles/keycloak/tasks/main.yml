@@ -1,0 +1,49 @@
+---
+#- name: Template '{{ filebeat_config_file_path }}' configuration file to the target home folder
+#  template:
+#    src:  "{{ filebeat_config_file_path }}"
+#    dest: /etc/filebeat.yml
+#    mode: 0755
+
+- name: Stop "{{ keycloak_docker_container_name }}"
+  docker_container:
+    name: "{{ keycloak_docker_container_name }}"
+    state: stopped
+  ignore_errors: yes
+
+- name: Remove "{{ keycloak_docker_container_name }}"
+  docker_container:
+    name: "{{ keycloak_docker_container_name }}"
+    state: absent
+  ignore_errors: yes
+
+- name: Pull the Docker image with the name '{{ keycloak_docker_image }}'
+  docker_image:
+    name: "{{ keycloak_docker_image }}"
+
+- name: Run the Docker image with the name '{{ keycloak_docker_image }}'
+  docker_container:
+    name: "{{ keycloak_docker_container_name }}"
+    image: "{{ keycloak_docker_image }}"
+
+
+- name: get container status
+  shell: docker inspect "{{ keycloak_docker_container_name }}"
+  register: status
+
+- name: Set container status as json from message output
+  set_fact:
+    statusJson: "{{ status.stdout | from_json }}"
+
+- name: Set container state variable
+  set_fact:
+    containerState: "{{ statusJson[0] }}"
+
+- name: Assert that "{{ keycloak_docker_container_name }}" is running
+  assert:
+    that:
+      - "{{ containerState.State.Running}} == true"
+- name: Assert that "{{ keycloak_docker_container_name }}" did not restart
+  assert:
+    that:
+      - "{{ containerState.State.Restarting}} == false"
