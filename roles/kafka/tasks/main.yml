@@ -34,6 +34,8 @@
   docker_container:
     name: "{{ kafka_docker_container_name }}"
     image: "{{ kafka_docker_image }}"
+    published_ports: "{{ kafka_exposed_port }}:{{ kafka_internal_port }}"
+
 
 
 - name: get container status

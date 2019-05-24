@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03e203fe-140f-4f1d-8ce8-f4d4067d0e71" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/inventories/environment/extra_vars.json" beforeDir="false" afterPath="$PROJECT_DIR$/inventories/environment/extra_vars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/roles/kafka/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/kafka/tasks/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="extra_vars.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="extra_vars.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inventories/environment/extra_vars.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -42,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hosts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hosts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inventories/environment/hosts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -63,8 +64,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roles/kafka/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="255">
+              <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -86,8 +87,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+            <state relative-caret-position="324">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -113,10 +114,10 @@
         <option value="$PROJECT_DIR$/ssa.yml" />
         <option value="$PROJECT_DIR$/inventories/gic/extra_vars.json" />
         <option value="$PROJECT_DIR$/setup.sh" />
-        <option value="$PROJECT_DIR$/roles/kafka/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" />
         <option value="$PROJECT_DIR$/inventories/environment/extra_vars.json" />
+        <option value="$PROJECT_DIR$/roles/kafka/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" />
       </list>
     </option>
   </component>
@@ -307,12 +308,12 @@
       <workItem from="1558448285898" duration="5137000" />
       <workItem from="1558531674204" duration="2476000" />
       <workItem from="1558624070867" duration="6612000" />
-      <workItem from="1558688469469" duration="4343000" />
+      <workItem from="1558688469469" duration="6678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18568000" />
+    <option name="totallyTimeSpent" value="20903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -500,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/environment/hosts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -517,6 +511,13 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/environment/extra_vars.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/roles/docker/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-356">
@@ -526,8 +527,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/roles/kafka/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="255">
+          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -538,17 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
+    <entry file="file://$PROJECT_DIR$/inventories/environment/hosts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/environment/extra_vars.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

@@ -25,8 +25,7 @@
   docker_container:
     name: "{{ keycloak_docker_container_name }}"
     image: "{{ keycloak_docker_image }}"
-    published_ports:  8080:8080
-
+    published_ports: "{{ keycloak_exposed_port }}:{{ keycloak_internal_port }}"
 
 - name: get container status
   shell: docker inspect "{{ keycloak_docker_container_name }}"
