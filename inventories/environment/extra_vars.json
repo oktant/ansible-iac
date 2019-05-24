@@ -13,5 +13,6 @@
   "zookeeper_docker_image": "wurstmeister/zookeeper",
   "zookeeper_docker_container_name": "kafka",
   "zookeeper_exposed_port": 2181,
-  "zookeeper_internal_port": 2181
+  "zookeeper_internal_port": 2181,
+  "target_host_ip": "192.168.33.11"
 }

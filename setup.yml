@@ -4,6 +4,7 @@
   roles:
     - docker
     - keycloak
+    - zookeeper
     - kafka
 
 

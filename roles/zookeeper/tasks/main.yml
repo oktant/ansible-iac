@@ -11,8 +11,6 @@
     state: absent
   ignore_errors: yes
 
-
-
 - name: Pull the Docker image with the name '{{ kafka_docker_image }}'
   docker_image:
     name: "{{ zookeeper_docker_image }}"

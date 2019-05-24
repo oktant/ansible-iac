@@ -1,15 +1,4 @@
 ---
-- name: Stop "{{ zookeeper_docker_container_name }}"
-  docker_container:
-    name: "{{ zookeeper_docker_container_name }}"
-    state: stopped
-  ignore_errors: yes
-
-- name: Remove "{{ zookeeper_docker_container_name }}"
-  docker_container:
-    name: "{{ zookeeper_docker_container_name }}"
-    state: absent
-  ignore_errors: yes
 
 - name: Stop "{{ kafka_docker_container_name }}"
   docker_container:
@@ -24,17 +13,24 @@
   ignore_errors: yes
 
 
+- name: Provision the environment variables to file
+  template:
+    src:  templates/env-file-kafka.list.j2
+    dest: /etc/env-file-kfka.list
+    mode: 7777
 
 
 - name: Pull the Docker image with the name '{{ kafka_docker_image }}'
   docker_image:
     name: "{{ kafka_docker_image }}"
 
-- name: Run the Docker image with the name '{{ kafka_docker_image }}'
+- name: Run the Docker image with the name '{{ kafka_docker_image }}'nop
   docker_container:
     name: "{{ kafka_docker_container_name }}"
     image: "{{ kafka_docker_image }}"
+    env_file: /etc/env-file-kafka.list
     published_ports: "{{ kafka_exposed_port }}:{{ kafka_internal_port }}"
+    restart_policy: always
 
 
 
