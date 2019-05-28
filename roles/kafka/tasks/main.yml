@@ -13,12 +13,6 @@
   ignore_errors: yes
 
 
-- name: Provision the environment variables to file
-  template:
-    src:  templates/env-file-kafka.list.j2
-    dest: /etc/env-file-kfka.list
-    mode: 7777
-
 
 - name: Pull the Docker image with the name '{{ kafka_docker_image }}'
   docker_image:
@@ -28,7 +22,9 @@
   docker_container:
     name: "{{ kafka_docker_container_name }}"
     image: "{{ kafka_docker_image }}"
-    env_file: /etc/env-file-kafka.list
+    env:
+      KAFKA_ZOOKEEPER_CONNECT: "{{ target_host_ip }}:2181"
+      KAFKA_ADVERTISED_HOST_NAME: "{{ target_host_ip }}"
     published_ports: "{{ kafka_exposed_port }}:{{ kafka_internal_port }}"
     restart_policy: always
 

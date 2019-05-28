@@ -11,11 +11,11 @@
     state: absent
   ignore_errors: yes
 
-- name: Pull the Docker image with the name '{{ kafka_docker_image }}'
+- name: Pull the Docker image with the name '{{ zookeeper_docker_image }}'
   docker_image:
     name: "{{ zookeeper_docker_image }}"
 
-- name: Run the Docker image with the name '{{ kafka_docker_image }}'
+- name: Run the Docker image with the name '{{ zookeeper_docker_image }}'
   docker_container:
     name: "{{ zookeeper_docker_container_name }}"
     image: "{{ zookeeper_docker_image }}"

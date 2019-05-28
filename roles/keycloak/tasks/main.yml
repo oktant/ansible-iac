@@ -26,6 +26,10 @@
     name: "{{ keycloak_docker_container_name }}"
     image: "{{ keycloak_docker_image }}"
     published_ports: "{{ keycloak_exposed_port }}:{{ keycloak_internal_port }}"
+    env:
+          KEYCLOAK_USER: "{{ keycloak_username }}"
+          KEYCLOAK_PASSWORD: "{{ keycloak_password }}"
+
 
 - name: get container status
   shell: docker inspect "{{ keycloak_docker_container_name }}"
