@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03e203fe-140f-4f1d-8ce8-f4d4067d0e71" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventories/environment/extra_vars.json" beforeDir="false" afterPath="$PROJECT_DIR$/inventories/environment/extra_vars.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/kafka/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/kafka/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/kafka/templates/env-file-kafka.list.j2" beforeDir="false" afterPath="$PROJECT_DIR$/roles/kafka/templates/env-file-kafka.list.j2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.yml" beforeDir="false" afterPath="$PROJECT_DIR$/setup.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,20 +31,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setup.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.sh">
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roles/git/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="65" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -66,7 +61,7 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roles/docker/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="17">
               <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
             </state>
           </provider>
@@ -75,8 +70,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roles/kafka/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="56" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="26" selection-end-column="56" />
+            <state>
+              <caret selection-end-line="12" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -95,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="442">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -126,12 +121,13 @@
         <option value="$PROJECT_DIR$/ssa.yml" />
         <option value="$PROJECT_DIR$/inventories/gic/extra_vars.json" />
         <option value="$PROJECT_DIR$/setup.sh" />
-        <option value="$PROJECT_DIR$/setup.yml" />
         <option value="$PROJECT_DIR$/roles/kafka/templates/env-file-kafka.list.j2" />
         <option value="$PROJECT_DIR$/roles/kafka/tasks/main.yml" />
         <option value="$PROJECT_DIR$/roles/zookeeper/tasks/main.yml" />
         <option value="$PROJECT_DIR$/inventories/environment/extra_vars.json" />
         <option value="$PROJECT_DIR$/roles/keycloak/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/roles/git/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/setup.yml" />
       </list>
     </option>
   </component>
@@ -184,13 +180,13 @@
               <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
               <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
+              <item name="git" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
               <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
+              <item name="git" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -204,39 +200,6 @@
               <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
               <item name="roles" type="462c0819:PsiDirectoryNode" />
               <item name="kafka" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="kafka" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="zookeeper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ansible-iac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ansible-iac" type="462c0819:PsiDirectoryNode" />
-              <item name="roles" type="462c0819:PsiDirectoryNode" />
-              <item name="zookeeper" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -334,12 +297,12 @@
       <workItem from="1558531674204" duration="2476000" />
       <workItem from="1558624070867" duration="6612000" />
       <workItem from="1558688469469" duration="12485000" />
-      <workItem from="1559049161677" duration="3068000" />
+      <workItem from="1559049161677" duration="4069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29778000" />
+    <option name="totallyTimeSpent" value="30779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -589,20 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/docker/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/zookeeper/templates/env-file-kafka.list.j2" />
     <entry file="file://$PROJECT_DIR$/roles/kafka/templates/env-file-kafka.list.j2">
       <provider selected="true" editor-type-id="text-editor">
@@ -614,24 +563,24 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventories/environment/hosts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roles/kafka/tasks/main.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="56" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="26" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roles/zookeeper/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventories/environment/hosts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -642,10 +591,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/roles/keycloak/tasks/main.yml">
+    <entry file="file://$PROJECT_DIR$/roles/docker/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="17">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/kafka/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roles/git/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
