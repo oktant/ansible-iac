@@ -2,8 +2,11 @@
 
 - hosts: target-server
   roles:
-    - docker
-    - keycloak
-    - kafka
+#    - docker
+#    - keycloak
+#    - zookeeper
+#    - kafka
+    - git
+    - tmux
 
 

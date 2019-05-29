@@ -1,11 +1,33 @@
+---
+
+- name: Stop "{{ kafka_docker_container_name }}"
+  docker_container:
+    name: "{{ kafka_docker_container_name }}"
+    state: stopped
+  ignore_errors: yes
+
+- name: Remove "{{ kafka_docker_container_name }}"
+  docker_container:
+    name: "{{ kafka_docker_container_name }}"
+    state: absent
+  ignore_errors: yes
+
+
+
 - name: Pull the Docker image with the name '{{ kafka_docker_image }}'
   docker_image:
     name: "{{ kafka_docker_image }}"
 
-- name: Run the Docker image with the name '{{ kafka_docker_image }}'
+- name: Run the Docker image with the name '{{ kafka_docker_image }}'nop
   docker_container:
     name: "{{ kafka_docker_container_name }}"
     image: "{{ kafka_docker_image }}"
+    env:
+      KAFKA_ZOOKEEPER_CONNECT: "{{ target_host_ip }}:2181"
+      KAFKA_ADVERTISED_HOST_NAME: "{{ target_host_ip }}"
+    published_ports: "{{ kafka_exposed_port }}:{{ kafka_internal_port }}"
+    restart_policy: always
+
 
 
 - name: get container status
