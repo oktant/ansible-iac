@@ -7,6 +7,20 @@
   "kafka_docker_image": "wurstmeister/kafka",
   "kafka_docker_container_name": "kafka",
   "zookeeper_docker_image": "wurstmeister/zookeeper",
-  "zookeeper_docker_container_name": "kafka"
-
+  "zookeeper_docker_container_name": "kafka",
+  "gocd_docker_container_name":"gocd17",
+  "gocd_docker_image":"gocd/gocd-server:v17.11.0",
+  "gocd_exposed_port_http":"9955",
+  "gocd_internal_port_http":"8153",
+  "gocd_exposed_port_https":"9954",
+  "gocd_internal_port_https":"8154",
+  "aws_access_key_id":"",
+  "aws_secret_key":"",
+  "url_for_repository_plugin":"",
+  "auth_header_for_get_repository_plugin":"",
+  "gocd_username":"goadmin",
+  "gocd_password":"goadmin",
+  "go_server_url":"http://address_of_gocd_server/go",
+  "gocd_agent_docker_image":"gocd/gocd-agent-alpine-3.6:v17.11.0",
+  "gocd_agent_docker_container_name":"gocdagent17"
 }

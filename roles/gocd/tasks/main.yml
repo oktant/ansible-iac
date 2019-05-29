@@ -1,0 +1,121 @@
+---
+# Install dockerized gocd server and agent with aws ecr as your artifactory
+
+- name: Stop "{{ gocd_docker_container_name }}"
+  docker_container:
+    name: "{{ gocd_docker_container_name }}"
+    force_kill: yes
+    state: stopped
+  ignore_errors: yes
+
+- name: Remove "{{ gocd_docker_container_name }}"
+  docker_container:
+    name: "{{ gocd_docker_container_name }}"
+    state: absent
+  ignore_errors: yes
+
+- name: Pull the Docker image with the name '{{ gocd_docker_image }}'
+  docker_image:
+    name: "{{ gocd_docker_image }}"
+
+- name: Run the Docker image with the name '{{ gocd_docker_image }}' to point to your aws account
+  docker_container:
+    name: "{{ gocd_docker_container_name }}"
+    image: "{{ gocd_docker_image }}"
+    published_ports:
+      - "{{ gocd_exposed_port_http }}:{{ gocd_internal_port_http }}"
+      - "{{ gocd_exposed_port_https }}:{{ gocd_internal_port_https }}"
+    env:
+        AWS_SECRET_KEY: "{{ aws_secret_key }}"
+        AWS_ACCESS_KEY_ID: "{{ aws_access_key_id }}"
+
+#the reason for pausing the playbook is to make sure that the docker container is fully up and running!
+- name: pause anisble-playbook for 10 sec
+  pause:
+   seconds: 10
+
+- name: install openssl
+  shell: docker exec "{{ gocd_docker_container_name }}" bash -c "apk add --update openssl"
+
+- name: install xmlstarlet
+  shell: docker exec "{{ gocd_docker_container_name }}" bash -c "apk add --update xmlstarlet"
+
+- name: install apache2 utils
+  shell: docker exec "{{ gocd_docker_container_name }}" bash -c "apk add --update apache2-utils"
+
+- name: add credentails for gocd
+  shell: docker exec "{{ gocd_docker_container_name }}" bash -c "htpasswd -b -c -B /home/go/auth {{ gocd_username }} {{ gocd_password }}"
+
+- name: download jar of ecr plugin from ftp or http location and unzip
+  shell: docker exec -w /godata/plugins/external "{{ gocd_docker_container_name }}" bash -c "wget {{ url_for_repository_plugin }} --header {{auth_header_for_get_repository_plugin}}" && echo "pass"
+  register: ecr_download_status
+
+- name: Re-start the Docker image with the name '{{ gocd_docker_image }}'
+  docker_container:
+    name: "{{ gocd_docker_container_name }}"
+    state: started
+    restart: yes
+
+- name: print the value of security config
+  shell: cat roles/gocd/templates/gocd_security_cruise_config
+  register: myxmlvalue
+
+- name: debug the value of security config
+  debug:
+    msg: '{{ myxmlvalue.stdout }}'
+
+- name: edit cruise-config.xml to add login creds
+  shell: docker exec -w /go-working-dir/config "{{ gocd_docker_container_name }}" bash -c "xml ed -u '/cruise/server' -v '{{ myxmlvalue.stdout }}' cruise-config.xml >temp.xml"
+
+- name: edit cruise-config.xml to unescape any escaped xml syntax
+  shell: docker exec -w /go-working-dir/config "{{ gocd_docker_container_name }}" bash -c "cat temp.xml | xml unesc > cruise-config.xml"
+
+- name: remove temp.xml
+  shell: docker exec -w /go-working-dir/config "{{ gocd_docker_container_name }}" bash -c "rm -f temp.xml"
+
+- name: get container status
+  shell: docker inspect "{{ gocd_docker_container_name }}"
+  register: status
+
+- name: Set container status as json from message output
+  set_fact:
+    statusJson: "{{ status.stdout | from_json }}"
+
+- name: Set container state variable
+  set_fact:
+    containerState: "{{ statusJson[0] }}"
+
+- name: Assert that ecr plugin is downloaded is running
+  assert:
+    that:
+      - "{{ containerState.State.Running}} == true"
+
+- name: Assert that "{{ gocd_docker_container_name }}" is running
+  assert:
+    that:
+      - "{{ containerState.State.Running}} == true"
+
+# Install gocdAgent
+- name: Stop "{{ gocd_agent_docker_container_name }}"
+  docker_container:
+    name: "{{ gocd_agent_docker_container_name }}"
+    force_kill: yes
+    state: stopped
+  ignore_errors: yes
+
+- name: Remove "{{ gocd_agent_docker_container_name }}"
+  docker_container:
+    name: "{{ gocd_agent_docker_container_name }}"
+    state: absent
+  ignore_errors: yes
+
+- name: Pull the Docker image with the name '{{ gocd_agent_docker_image }}'
+  docker_image:
+    name: "{{ gocd_agent_docker_image }}"
+
+- name: Run the Docker image with the name '{{ gocd_agent_docker_image }}' to point to your aws account
+  docker_container:
+    name: "{{ gocd_agent_docker_container_name }}"
+    image: "{{ gocd_agent_docker_image }}"
+    env:
+        GO_SERVER_URL: "{{ go_server_url }}"
