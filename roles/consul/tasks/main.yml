@@ -1,0 +1,22 @@
+---
+- name: Install unzip
+  yum:
+   name: unzip
+
+- name: Download and install consul
+  unarchive:
+       src: "https://releases.hashicorp.com/consul/1.5.1/consul_1.5.1_linux_amd64.zip"
+       dest: /usr/bin/
+       remote_src: True
+
+- name: add consul to .bashrc
+  copy:
+     dest: /etc/profile.d/custom-path.sh
+     content:
+            'PATH=$PATH:/usr/bin'
+
+- name: run consul
+  shell: nohup consul agent -dev </dev/null >/dev/null 2>&1 &
+  async: 10
+  poll: 0
+  ignore_errors: yes
