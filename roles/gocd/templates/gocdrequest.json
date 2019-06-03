@@ -1,0 +1,14 @@
+{
+  "repo_id": "ec72df3d-fa34-44e6-9086-4fdbc48c7409",
+  "name": "ecr-poller",
+  "plugin_metadata": {
+    "id": "ecr-poller",
+    "version": "1"
+  },
+  "configuration": [
+    {
+      "key": "REPO_CONFIG_AWS_REGION",
+      "value": "us-east-2"
+    }
+  ]
+}
