@@ -95,6 +95,10 @@
     that:
       - "{{ containerState.State.Running}} == true"
 
+- name: pause anisble-playbook for 30 sec -Done installing gocd server
+  pause:
+   seconds: 30
+
 # Install gocdAgent
 - name: Stop "{{ gocd_agent_docker_container_name }}"
   docker_container:
@@ -119,3 +123,74 @@
     image: "{{ gocd_agent_docker_image }}"
     env:
         GO_SERVER_URL: "{{ go_server_url }}"
+
+- name: pause anisble-playbook for 30 sec
+  pause:
+   seconds: 30
+
+- name: Create gocd ecr-poller repository
+  uri:
+    url: "{{ gocd_repo_create_url }}"
+    user: "{{ gocd_username }}"
+    password: "{{ gocd_password }}"
+    method: POST
+    body_format: json
+    body: "{{ lookup('file','roles/gocd/templates/gocdrequest.json') }}"
+    force_basic_auth: yes
+    headers:
+      Accept: "application/vnd.go.cd.v1+json"
+    status_code: 200
+  register: result_gocd_pkg_repo
+
+- name: debug the result of gocd
+  debug:
+    msg: "The value of result is {{ result_gocd_pkg_repo }}"
+
+- name: Get all agents
+  uri:
+    url: "{{ gocd_agents_get_url }}"
+    user: "{{ gocd_username }}"
+    password: "{{ gocd_password }}"
+    method: GET
+    force_basic_auth: yes
+    headers:
+      Accept: "application/vnd.go.cd.v4+json"
+    status_code: 200
+    return_content: yes
+  register: result_all_agents
+  tags:
+    - agents
+
+- name: set gocd agents
+  set_fact:
+    gocd_agents: "{{ result_all_agents.json._embedded.agents | map(attribute='uuid') | list }}"
+  tags:
+    - agents
+
+- name: print gocdagents
+  debug:
+    msg: "{{ gocd_agents }}"
+  tags:
+    - agents
+
+- name: Enable gocd agents
+  uri:
+    url: "{{ gocd_agents_get_url }}"
+    user: "{{ gocd_username }}"
+    password: "{{ gocd_password }}"
+    method: PATCH
+    body_format: json
+    body: "{{ lookup('template','roles/gocd/templates/gocdrequest_agents.json.j2') }}"
+    force_basic_auth: yes
+    headers:
+      Accept: "application/vnd.go.cd.v4+json"
+    status_code: 200
+  register: result_gocd_agent_output
+  tags:
+    - agents
+
+- name: print gocd agent enable output
+  debug:
+    msg: "{{ result_gocd_agent_output }}"
+  tags:
+    - agents
