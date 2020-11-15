@@ -1,1 +1,0 @@
-<security><authConfigs><authConfig id=\"admin\" pluginId=\"cd.go.authentication.passwordfile\"><property><key>PasswordFilePath</key><value>/home/go/auth</value></property></authConfig></authConfigs></security>
